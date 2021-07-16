@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
-  static const Map<int, Color> color = {
+ class AppColors{ 
+    static const Map<int, Color> color = {
     50: Color.fromRGBO(204, 212, 255, 1),
     100: Color.fromRGBO(153, 168, 255, 1),
     200: Color.fromRGBO(128, 147, 255, 1),
@@ -19,4 +19,5 @@ class AppColors {
 
   // [Hex value:> fee34A]
   static const Color appSecondaryColor = Color.fromRGBO(254, 227, 74, 1);
-}
+
+  }

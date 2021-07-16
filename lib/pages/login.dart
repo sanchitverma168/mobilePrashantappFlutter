@@ -3,9 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prashantapp/const/colors.dart';
 import 'package:prashantapp/const/size.dart';
 import 'package:prashantapp/const/strings.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_bloc.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_event.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_state.dart';
 import 'package:prashantapp/widgets/login/button_widget.dart';
 import 'package:prashantapp/widgets/login/textFieldWidget.dart';
 import 'package:prashantapp/widgets/login/wave_widget.dart';
@@ -20,7 +17,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final _page = BlocProvider.of<PageTransitionBloc>(context);
     final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -44,29 +40,14 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 100.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                BlocBuilder<PageTransitionBloc, HandleDrawerPageState>(
-                  builder: (BuildContext context, HandleDrawerPageState state) {
-                    return Text("s",
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.w900,
-                        ));
-                  },
-                ),
-                Text(
-                  // _page.state.toString(),
-                  AppStrings.login,
-                  style: TextStyle(
-                    color: AppColors.white,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
+            child: Text(
+              // _page.state.toString(),
+              AppStrings.login,
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 40.0,
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ),
           Padding(
@@ -110,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20.0,
                 ),
                 GestureDetector(
-                  onTap: () => {_page.add(HomeEvent())},
+                  // onTap: () => {_page.add(HomeEvent())},
                   child: ButtonWidget(
                     title: AppStrings.login,
                     hasBorder: false,
@@ -120,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10.0,
                 ),
                 GestureDetector(
-                  onTap: () => _page.add(AccountEvent()),
+                  // onTap: () => _page.add(AccountEvent()),
                   child: ButtonWidget(
                     title: AppStrings.signup,
                     hasBorder: true,

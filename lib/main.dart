@@ -1,29 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prashantapp/const/colors.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_bloc.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_state.dart';
 import 'package:prashantapp/pages/dashboard.dart';
-import 'package:prashantapp/pages/dashboard/home.dart';
+import 'package:prashantapp/pages/error.dart';
+import 'package:prashantapp/pages/loading.dart';
+import 'package:prashantapp/pages/login.dart';
+import 'package:provider/provider.dart';
+import 'provider/routeHandler.dart';
 
 void main() {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor:Colors.transparent ));
-  runApp(MyApp());
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: AppColors.appPrimaryColor));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => RouteHandler()),
+      ],
+      child: new MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: new ThemeData(
+          primarySwatch: AppColors.appPrimaryColor,
+          secondaryHeaderColor: AppColors.appSecondaryColor,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        initialRoute: '/',
+        routes: <String, WidgetBuilder>{
+          '/': (BuildContext context) => new Router(),
+        },
+      ),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class Router extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: AppColors.appPrimaryColor,
-      ),
-      home: BlocProvider(
-        create: (context) => PageTransitionBloc(HandleDrawerPageState(Home(),0)),
-        child: Dashboard(),
+    return Scaffold(
+      body: Consumer<RouteHandler>(
+        builder: (context, user, child) {
+          switch (user.status) {
+            case Status.Uninitialized:
+              return AndroidLoading();
+            case Status.Unauthenticated:
+              return LoginPage();
+            case Status.Authenticated:
+              return Dashboard();
+            case Status.NOINTERNETCONNECTION:
+              return ErrorPage();
+            default:
+              return LoginPage();
+          }
+        },
       ),
     );
   }

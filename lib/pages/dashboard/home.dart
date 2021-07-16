@@ -4,8 +4,6 @@ import 'package:prashantapp/const/colors.dart';
 import 'package:prashantapp/const/icons.dart';
 import 'package:prashantapp/const/images.dart';
 import 'package:prashantapp/const/size.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_bloc.dart';
-import 'package:prashantapp/controllers/bloc/handledrawerpage_event.dart';
 import 'package:prashantapp/widgets/dashboard/line_chart.dart';
 import 'package:prashantapp/widgets/dashboard/shortcut_box.dart';
 
@@ -19,7 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    final _page = BlocProvider.of<PageTransitionBloc>(context);
+    var _page;
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -27,7 +25,7 @@ class _HomeState extends State<Home> {
           child: Column(
             children: [
               // SizedBox(height: AppSizes(context).tp,),
-              TopHeader(page: _page),
+              TopHeader(),
               SizedBox(height: 20),
               Graph(),
               Divider(height: 10),
@@ -86,7 +84,7 @@ class SendRequestButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         GestureDetector(
-          onTap: () => page.add(SendEvent()),
+          // onTap: () => page.add(SendEvent()),
           child: ShortCut(
             transform: true,
             text: "    Send    ",
@@ -95,7 +93,7 @@ class SendRequestButton extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () => page.add(RequestEvent()),
+          // onTap: () => page.add(RequestEvent()),
           child: ShortCut(
             transform: false,
             text: "Request",
@@ -143,11 +141,8 @@ class Graph extends StatelessWidget {
 class TopHeader extends StatelessWidget {
   const TopHeader({
     Key? key,
-    required PageTransitionBloc page,
-  })  : _page = page,
-        super(key: key);
+  }) : super(key: key);
 
-  final PageTransitionBloc _page;
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +152,7 @@ class TopHeader extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () => _page.add(AccountEvent()),
+            // onTap: () => _page.add(AccountEvent()),
             child: CircleAvatar(
                 radius: 30, backgroundImage: AssetImage(AppImages.profileimg)),
           ),
