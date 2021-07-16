@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prashantapp/const/colors.dart';
 import 'package:prashantapp/const/icons.dart';
 import 'package:prashantapp/const/images.dart';
-import 'package:prashantapp/const/size.dart';
 import 'package:prashantapp/widgets/dashboard/line_chart.dart';
 import 'package:prashantapp/widgets/dashboard/shortcut_box.dart';
 
@@ -71,13 +69,12 @@ class LastTransaction extends StatelessWidget {
     );
   }
 }
-
 class SendRequestButton extends StatelessWidget {
   SendRequestButton(
     this.page, {
     Key? key,
   }) : super(key: key);
-  var page;
+  final  page;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -142,7 +139,6 @@ class TopHeader extends StatelessWidget {
   const TopHeader({
     Key? key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {

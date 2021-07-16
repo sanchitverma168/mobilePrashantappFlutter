@@ -1,11 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prashantapp/const/colors.dart';
-import 'package:prashantapp/const/size.dart';
-import 'package:prashantapp/const/strings.dart';
-import 'package:prashantapp/widgets/login/button_widget.dart';
-import 'package:prashantapp/widgets/login/textFieldWidget.dart';
-import 'package:prashantapp/widgets/login/wave_widget.dart';
+import 'package:prashantapp/const/_const.dart';
+import 'package:prashantapp/widgets/login/_login.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -42,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.only(top: 100.0),
             child: Text(
               // _page.state.toString(),
-              AppStrings.login,
+              AppStrings.tlogin,
               style: TextStyle(
                 color: AppColors.white,
                 fontSize: 40.0,
@@ -93,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   // onTap: () => {_page.add(HomeEvent())},
                   child: ButtonWidget(
-                    title: AppStrings.login,
+                    title: AppStrings.tlogin,
                     hasBorder: false,
                   ),
                 ),

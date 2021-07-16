@@ -9,17 +9,21 @@ class AppStrings {
   static const String dob = "Date of Birth";
 
   /// Login Screen Page [ Returns "Login"]
-  static const String login = "Login";
+  static const String tlogin = "Login";
 
   /// Login Screen Page [Returns "Forgot Password?"]
   static const String forgotPassword = "Forgot Password?";
 
   /// Login Screen Page [ Returns "Sign Up"]
   static const String signup = "Sign Up";
-  
-  
+
   /// Authentication Page [ Returns "Regular Expression for Email String"]
   // static final RegExp _emailRegExp = RegExp(
   //   r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
   // );
+
+  static const String server =
+      "https://us-central1-prashant-app-b7a18.cloudfunctions.net";
+  static const String mode = "/auth";
+  static const String login = "/login";
 }

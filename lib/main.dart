@@ -6,6 +6,7 @@ import 'package:prashantapp/pages/error.dart';
 import 'package:prashantapp/pages/loading.dart';
 import 'package:prashantapp/pages/login.dart';
 import 'package:provider/provider.dart';
+import 'const/enums.dart';
 import 'provider/routeHandler.dart';
 
 void main() {

@@ -18,7 +18,7 @@ class ShortCut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double h = 25.0;
-    const double w = h;
+    // const double w = h;
     const double space = h / 2 - 5;
     const double borderradius = space * 2;
     const double iconsize = h * 2 - 8;

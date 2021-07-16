@@ -29,4 +29,3 @@ class _SendPageState extends State<SendPage> {
     );
   }
 }
-``
